@@ -1,2 +1,3 @@
-# terarij
-smart terarij - esp8266
+# Terarij
+smart terarij
+esp8266
