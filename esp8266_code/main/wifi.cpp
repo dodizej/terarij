@@ -4,9 +4,6 @@
 const unsigned int T_WiFi::timeout       = 10 * 1000;  // 10 sec
 const unsigned int T_WiFi::wait_interval = 500;        // 500 ms
 
-const char * T_WiFi::ssid     = "Tele2 Pokucni Internet-9795";
-const char * T_WiFi::password =  "bnm0337qwe";
-
 bool T_WiFi::connected = false;
 
 void T_WiFi::start() {
