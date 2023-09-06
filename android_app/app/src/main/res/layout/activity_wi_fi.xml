@@ -1,0 +1,86 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+tools:context=".WiFiActivity"
+    android:background="@color/cardview_dark_background"
+
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WiFi name: "
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/nameText"
+        ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+        android:text="WiFi password: "
+        android:textSize="25dp"
+        android:id="@+id/passwordText"
+        ></TextView>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/passwordText"
+        android:id="@+id/wifiEditText"
+        android:hint="Enter name"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+
+        ></EditText>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/passwordText"
+        android:id="@+id/passwordEditText"
+        android:hint="Enter password"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="10dp"
+        ></EditText>
+
+    <Button
+        android:id="@+id/connectToWiFi"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginTop="50dp"
+        android:text="Connect"
+        android:textSize="30dp"
+        />
+
+    <Button
+        android:id="@+id/goToBluetooth"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/connectToWiFi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="30dp"
+        android:text="Bluetooth " />
+
+    <Button
+        android:id="@+id/Home"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/goToBluetooth"
+        android:layout_marginTop="25dp"
+        android:textSize="30dp"
+        android:text="Home" />
+</RelativeLayout>
