@@ -47,6 +47,9 @@ void T_States::set_state(const String & state_name, int state_value) {
     key_not_found(state_name);
     return;
   }
+  if (state_value == int_values[state_name]) {
+    return;
+  }
   int_values[state_name] = state_value;
   new_states.push_back(state_name);
 }
@@ -54,6 +57,9 @@ void T_States::set_state(const String & state_name, int state_value) {
 void T_States::set_state(const String & state_name, bool state_value) {
   if (bool_values.find(state_name) == bool_values.end()) {
     key_not_found(state_name);
+    return;
+  }
+  if (state_value == bool_values[state_name]) {
     return;
   }
   bool_values[state_name] = state_value;
