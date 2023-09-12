@@ -11,6 +11,9 @@ class T_Server {
     static void start();
     static void handle_requests();
 
+    static void handle_get_request();
+    static void handle_post_requests();
+
     static void api_main();
 };
 

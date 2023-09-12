@@ -7,9 +7,11 @@
 #include "utils.h"
 #include "states.h"
 
+
 void setup() {
   Serial.begin(9600);
   Serial.println("");
+
   
   T_WiFi::start();
   if (! T_WiFi::is_connected()) {
@@ -19,8 +21,10 @@ void setup() {
   T_States::getInstance().get_states_json();
   
   T_Server::start();
+  
 }
  
 void loop() {
     T_Server::handle_requests();
+    // T_States::getInstance().set_new_states();
 }

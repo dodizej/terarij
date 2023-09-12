@@ -1,9 +1,10 @@
 #include "Arduino.h"
 #include "states.h"
-#include <ArduinoJson.h>
 
 
 T_States::T_States() {
+
+  new_states = std::vector<String>();
 
   int_values  = std::map<String, int>();
   bool_values = std::map<String, bool>();
@@ -41,27 +42,31 @@ int T_States::get_int_state(const String & state_name) {
   return int_values[state_name];
 }
 
-void T_States::set_bool_state(const String & state_name, bool state_value) {
-  if (bool_values.find(state_name) == bool_values.end()) {
-    key_not_found(state_name);
-    return;
-  }
-  bool_values[state_name] = state_value;
-}
-
-void T_States::set_int_state(const String & state_name, int state_value) {
+void T_States::set_state(const String & state_name, int state_value) {
   if (int_values.find(state_name) == int_values.end()) {
     key_not_found(state_name);
     return;
   }
   int_values[state_name] = state_value;
+  new_states.push_back(state_name);
+}
+
+void T_States::set_state(const String & state_name, bool state_value) {
+  if (bool_values.find(state_name) == bool_values.end()) {
+    key_not_found(state_name);
+    return;
+  }
+  bool_values[state_name] = state_value;
+  new_states.push_back(state_name);
 }
 
 String T_States::get_states_json() {
   String result;
   StaticJsonDocument<200> doc;
-  // be careful with the doc size even the official assistant was wrong
+  // be careful with the doc size 
+  // even the official assistant was wrong
   //   arduinojson.org/v6/assistant
+  // TODO: dinamically determine size
 
   for ( std::map<String, int>::iterator it = int_values.begin()
       ; it != int_values.end()
@@ -76,11 +81,50 @@ String T_States::get_states_json() {
     doc[it->first] = it->second;
   }
   serializeJsonPretty(doc, result);
-  Serial.println(result);
+  Serial.println(result); // TODO: remove after testing
 
   return result;
 }
 
 int T_States::get_number_of_states() {
   return int_values.size() + bool_values.size();
+}
+
+T_States::New_States T_States::get_new_states() {
+  return new_states;
+}
+
+void T_States::clear_new_states() {
+  new_states.clear();
+}
+
+bool T_States::is_int_state(const String state_name) {
+  return int_values.find(state_name) != int_values.end();
+}
+
+bool T_States::is_bool_state(const String state_name) {
+  return bool_values.find(state_name) != bool_values.end();
+}
+
+bool T_States::check_json_states(JsonObject obj, String& err_msg) {
+  for (JsonPair pair : obj) {
+    String state_name = pair.key().c_str();
+
+    if (is_int_state(state_name)) {
+        if (! pair.value().is<int>()) {
+            err_msg += "INVALID_DATA_TYPE"; // ERROR: INVALID_DATA_TYPE
+            return false;
+        } 
+    } else if (is_bool_state(state_name)) {
+        if (! pair.value().is<bool>()) {
+
+            err_msg += "INVALID_DATA_TYPE"; // ERROR: INVALID_DATA_TYPE
+            return false;
+        }
+    } else {
+        err_msg += "STATE_NAME_DOES_NOT_EXIST"; // ERROR: STATE_NAME_DOES_NOT_EXIST
+        return false;
+    }
+  }
+  return true;
 }

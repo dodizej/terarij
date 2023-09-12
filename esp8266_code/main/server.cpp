@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "server.h"
+#include "api.h"
 
 ESP8266WebServer T_Server::server = ESP8266WebServer(80);
 
@@ -25,9 +26,9 @@ void T_Server::api_main() {
   int status_code = 200;
 
   if (server.method() == HTTP_GET) {
-    //T_API::handle_get_request(status_code, message);
+    T_Api::handle_get_request(server, status_code, message);
   } else if (server.method() == HTTP_POST) {
-    //T_API::handle_post_request(status_code, message);
+    T_Api::handle_post_request(server, status_code, message);
   } else {
     status_code = 405;
     message = "Method Not Allowed";
