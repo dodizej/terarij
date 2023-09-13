@@ -14,12 +14,11 @@ void setup() {
     end_execution();
   }
   T_Server::start();
-  delay(2000);
   T_Components::get_instance();
 }
  
 void loop() {
     T_Server::handle_requests();
     T_Components::get_instance().set_new_states();
-    // delay ? 
+    // delay(100); ?
 }

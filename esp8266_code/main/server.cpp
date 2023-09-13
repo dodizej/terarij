@@ -8,6 +8,7 @@ void T_Server::start() {
     server.on("/api", api_main);
  
     server.begin(); // Start the server
+    delay(1000);
     Serial.println("Server listening");
 }
 
