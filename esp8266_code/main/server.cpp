@@ -7,7 +7,7 @@ ESP8266WebServer T_Server::server = ESP8266WebServer(80);
 void T_Server::start() {
     server.on("/api", api_main);
  
-    server.begin(); //Start the server
+    server.begin(); // Start the server
     Serial.println("Server listening");
 }
 

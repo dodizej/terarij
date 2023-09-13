@@ -1,6 +1,10 @@
 #include "Arduino.h"
 #include "states.h"
 
+const String T_States::S_DIFUSOR   = "difusor_power";
+const String T_States::S_PUMP      = "pump_power";
+const String T_States::S_LED       = "led_power";
+const String T_States::S_LED_INTEN = "led_intensity";
 
 T_States::T_States() {
 
@@ -16,7 +20,7 @@ T_States::T_States() {
   bool_values[S_LED]      = false;
 };
 
-T_States& T_States::getInstance() {
+T_States& T_States::get_instance() {
   static T_States instance; // Guaranteed to be destroyed.
                             // Instantiated on first use.
   return instance;

@@ -9,7 +9,7 @@ void T_Api::handle_get_request(
     , int&              status_code
     , String&           message    )
 {
-    message = T_States::getInstance().get_states_json();
+    message = T_States::get_instance().get_states_json();
 }
 
 void T_Api::handle_post_request(
@@ -36,7 +36,7 @@ void T_Api::handle_post_request(
   //  Check if all of the state names and json values are valid
   //  then update all of the values
   JsonObject obj = doc.as<JsonObject>();
-  if (! T_States::getInstance().check_json_states(obj, message)) {
+  if (! T_States::get_instance().check_json_states(obj, message)) {
     status_code = 400; // HTTP Bad Request - assume error is in the user request
     return;
   }
@@ -44,10 +44,10 @@ void T_Api::handle_post_request(
   for (JsonPair pair : obj) {
     String state_name = pair.key().c_str();
 
-    if (T_States::getInstance().is_bool_state(state_name)) {
-      T_States::getInstance().set_state( state_name, pair.value().as<bool>() );
+    if (T_States::get_instance().is_bool_state(state_name)) {
+      T_States::get_instance().set_state( state_name, pair.value().as<bool>() );
     } else { // if (is_int_state(state_name))  ->  no need to check, it's an int state
-      T_States::getInstance().set_state( state_name, pair.value().as<int>() );
+      T_States::get_instance().set_state( state_name, pair.value().as<int>() );
     }
   }
 }
