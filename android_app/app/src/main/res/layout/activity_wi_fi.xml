@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+
 xmlns:tools="http://schemas.android.com/tools"
 android:orientation="vertical"
 tools:context=".WiFiActivity"
@@ -18,6 +19,7 @@ tools:context=".WiFiActivity"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:id="@+id/nameText"
+        android:textColor="@color/white"
         ></TextView>
 
     <TextView
@@ -30,6 +32,8 @@ tools:context=".WiFiActivity"
         android:text="WiFi password: "
         android:textSize="25dp"
         android:id="@+id/passwordText"
+        android:textColor="@color/white"
+
         ></TextView>
 
     <EditText
@@ -40,7 +44,8 @@ tools:context=".WiFiActivity"
         android:hint="Enter name"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
-
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         ></EditText>
 
     <EditText
@@ -51,6 +56,8 @@ tools:context=".WiFiActivity"
         android:hint="Enter password"
         android:layout_marginTop="55dp"
         android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         ></EditText>
 
     <Button

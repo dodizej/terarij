@@ -9,37 +9,37 @@
 
     >
     <Button
-        android:id="@+id/difuzorOff"
-        android:text="Difuzor OFF"
+        android:id="@+id/diffuserOff"
+        android:text="Diffuser OFF"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="240dp"
-        android:layout_below="@id/pumpaON"
+        android:layout_below="@id/pumpON"
         />
 
     <Button
-        android:id="@+id/pumpaOff"
+        android:id="@+id/pumpOff"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="240dp"
-        android:text="Pumpa OFF" />
+        android:text="Pump OFF" />
 
     <Button
-        android:id="@+id/difuzorON"
-        android:text="Difuzor ON"
+        android:id="@+id/diffuserON"
+        android:text="Diffuser ON"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/pumpaON"
+        android:layout_below="@+id/pumpON"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
          />
     <Button
-        android:id="@+id/pumpaON"
-        android:text="Pumpa ON"
+        android:id="@+id/pumpON"
+        android:text="Pump ON"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -47,49 +47,49 @@
          />
 
     <Button
-        android:id="@+id/SvjetloON"
+        android:id="@+id/lightOn"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_below="@id/difuzorON"
-        android:text="Svjetlo ON" />
+        android:layout_below="@id/diffuserON"
+        android:text="Light ON" />
 
     <Button
-        android:id="@+id/SvjetloOFF"
+        android:id="@+id/lightOff"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="240dp"
-        android:layout_below="@id/difuzorON"
-        android:text="Svjetlo OFF" />
+        android:layout_below="@id/diffuserON"
+        android:text="Light OFF" />
 
     <Button
-        android:id="@+id/SvjetlinaGore"
+        android:id="@+id/brightnessUp"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_below="@id/SvjetloON"
-        android:text="Svjetlina +" />
+        android:layout_below="@id/lightOn"
+        android:text="Brightness up" />
 
     <Button
-        android:id="@+id/SvjetlinaDolje"
+        android:id="@+id/brightnessDown"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="240dp"
-        android:layout_below="@id/SvjetloOFF"
-        android:text="Svjetlina -" />
+        android:layout_below="@id/lightOff"
+        android:text="Brightness down" />
     <Button
         android:id="@+id/toBlueTooth"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_below="@id/SvjetlinaGore"
+        android:layout_below="@id/brightnessUp"
         android:text="blueTooth" />
 
     <Button
@@ -99,7 +99,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="240dp"
-        android:layout_below="@id/SvjetlinaDolje"
+        android:layout_below="@id/brightnessDown"
         android:text="WiFi" />
 
 
