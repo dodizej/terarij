@@ -1,7 +1,6 @@
 package com.example.primjer;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +22,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MainActivity2 extends AppCompatActivity {
+public class Home extends AppCompatActivity {
     private OkHttpClient httpClient;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Button pumpON, pumpOFF, diffuserOn, diffuserOff, lightOn, lightOff, brightnessUp, brightnessDown;
@@ -46,7 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
         pumpON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            String pass="pumpOn";
+                String pass="pumpOn";
                 try {
                     sendPasswordToServer(pass);
                 } catch (JSONException e) {
@@ -176,11 +175,11 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
     private void switchToWifi(){
-        Intent intentWiFi=new Intent(MainActivity2.this, WiFiActivity.class);
+        Intent intentWiFi=new Intent(Home.this, WiFi.class);
         startActivity(intentWiFi);
     }
     private void switchToBluetooth(){
-        Intent intentBlueTooth=new Intent(MainActivity2.this,BlueToothActivity.class);
+        Intent intentBlueTooth=new Intent(Home.this, BlueTooth.class);
         startActivity(intentBlueTooth);
     }
 
@@ -205,7 +204,7 @@ public class MainActivity2 extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity2.this, "Failed to send password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Home.this, "Failed to send password", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -217,7 +216,7 @@ public class MainActivity2 extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(MainActivity2.this, "Password sent successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Home.this, "Password sent successfully", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
@@ -225,7 +224,7 @@ public class MainActivity2 extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(MainActivity2.this, "Failed to send password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Home.this, "Failed to send password", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -245,7 +244,7 @@ public class MainActivity2 extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity2.this, "Failed to retrieve password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Home.this, "Failed to retrieve password", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -268,7 +267,7 @@ public class MainActivity2 extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(MainActivity2.this, "Retrieved Password: " + password, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Home.this, "Retrieved Password: " + password, Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -286,7 +285,7 @@ public class MainActivity2 extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(MainActivity2.this, "Failed to retrieve password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Home.this, "Failed to retrieve password", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -323,5 +322,4 @@ public class MainActivity2 extends AppCompatActivity {
             }
         }, 500);
     }
-
 }

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Primjer"
         tools:targetApi="31">
         <activity
-            android:name=".WiFiActivity"
+            android:name=".BlueTooth"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BlueToothActivity"
+            android:name=".Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity2"
+            android:name=".WiFi"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
