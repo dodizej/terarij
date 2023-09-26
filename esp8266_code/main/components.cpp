@@ -23,11 +23,13 @@ T_Components::T_Components() {
        it != state_pin_map.end();
        ++it)
   {
+    /*
     Serial.println(it->first);
     Serial.println(it->second);
     Serial.println(OUTPUT);
+    */
     pinMode(it->second, OUTPUT);
-    // set_comp_power(it->first);
+    //set_comp_power(it->first);
   }
 }
 

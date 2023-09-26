@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.terarij.databinding.ActivityMainBinding;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -40,19 +41,16 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                executeHTTPTest();
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                executeHTTPTest(view);
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -60,23 +58,36 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    private void executeHTTPTest() {
-
+    private void executeHTTPTest(View view) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                OkHttpClient client = new OkHttpClient();
-
-
-                Request request = new Request.Builder()
-                        .url("http://192.168.8.117:80/api")
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .connectTimeout(2000, TimeUnit.MILLISECONDS)
                         .build();
 
-                try (Response response = client.newCall(request).execute()) {
-                    return;
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                for (int suffix = 100; suffix < 255; suffix++) {
+                    Request request = new Request.Builder()
+                            .url(String.format("http://192.168.8.%s:80/api", Integer.toString(suffix)))
+                            .build();
+
+                    String bodyStr = "";
+                    try (Response response = client.newCall(request).execute()) {
+
+                        if (response.body() != null) {
+                            bodyStr = response.body().byteStream().toString();
+                        } else {
+                            bodyStr = "Empty body received.";
+                        }
+                        break;
+
+                    } catch (Exception e) {
+                        bodyStr = "HTTP request failed. " + e.getMessage();
+                    } finally {
+                        Snackbar.make(view, bodyStr, Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
                 }
             }
         });
