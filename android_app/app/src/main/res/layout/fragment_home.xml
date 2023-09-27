@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.758" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/difusor_power"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:lineSpacingExtra="8sp"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.099" />
 
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/pump_power"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:text="Pump"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.169" />
 
     <Switch
-        android:id="@+id/switch3"
+        android:id="@+id/led_strip_power"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:text="Led Strip"
@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/led_inten"
         android:layout_width="334dp"
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"

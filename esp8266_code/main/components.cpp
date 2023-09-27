@@ -53,7 +53,7 @@ void T_Components::set_new_states() {
          it != new_states.end();
          ++it) {
         if ((*it).equals(T_States::S_LED_INTEN)) { 
-            // special case - pulse pin for led strip intensity
+            // TODO special case - pulse pin for led strip intensity
         } else {
             set_comp_power(*it);
         }

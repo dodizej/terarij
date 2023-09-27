@@ -91,8 +91,6 @@ String T_States::get_states_json() {
     doc[it->first] = it->second;
   }
   serializeJsonPretty(doc, result);
-  Serial.println(result); // TODO: remove after testing
-
   return result;
 }
 
