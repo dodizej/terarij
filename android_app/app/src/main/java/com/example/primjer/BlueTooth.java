@@ -41,8 +41,6 @@ public class BlueTooth extends AppCompatActivity {
         wiFiButton=(Button) findViewById(R.id.goToWifi);
         connectButton=(Button) findViewById(R.id.connectToBluetooth);
         searchButton=(Button) findViewById(R.id.scanBluetooth);
-
-
         homeActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
