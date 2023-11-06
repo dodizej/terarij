@@ -23,11 +23,13 @@ T_Components::T_Components() {
        it != state_pin_map.end();
        ++it)
   {
+    /*
     Serial.println(it->first);
     Serial.println(it->second);
     Serial.println(OUTPUT);
+    */
     pinMode(it->second, OUTPUT);
-    // set_comp_power(it->first);
+    //set_comp_power(it->first);
   }
 }
 
@@ -51,7 +53,7 @@ void T_Components::set_new_states() {
          it != new_states.end();
          ++it) {
         if ((*it).equals(T_States::S_LED_INTEN)) { 
-            // special case - pulse pin for led strip intensity
+            // TODO special case - pulse pin for led strip intensity
         } else {
             set_comp_power(*it);
         }

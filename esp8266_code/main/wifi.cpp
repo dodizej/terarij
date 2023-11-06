@@ -7,6 +7,9 @@ const unsigned int T_WiFi::wait_interval = 500;        // 500 ms
 bool T_WiFi::connected = false;
 
 void T_WiFi::start() {
+
+    
+    WiFi.hostname("Smart_Terrarium_Board");
     WiFi.begin(ssid, password);
  
     Serial.print("Waiting to connect...");
