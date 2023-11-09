@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "server.h"
-#include "api.h"
+#include "api.cpp"
 
 ESP8266WebServer T_Server::server = ESP8266WebServer(80);
 

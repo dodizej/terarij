@@ -1,8 +1,12 @@
 #include "Arduino.h"
 #include "wifi.h"
+#include "../utils/utils.cpp"
 
 const unsigned int T_WiFi::timeout       = 10 * 1000;  // 10 sec
 const unsigned int T_WiFi::wait_interval = 500;        // 500 ms
+
+const char * T_WiFi::ssid     =  "Tele2 Pokucni Internet-9795";
+const char * T_WiFi::password =  "bnm0337qwe";
 
 bool T_WiFi::connected = false;
 
@@ -14,6 +18,7 @@ void T_WiFi::start() {
  
     Serial.print("Waiting to connect...");
 
+    bool connected = false;
     unsigned int wait_time = 0;
     do {
         connected = WiFi.status() == WL_CONNECTED;
@@ -29,6 +34,7 @@ void T_WiFi::start() {
     if (!connected) {
       Serial.print("Failed to connect to the Wi-Fi network. SSID: ");
       Serial.println(ssid);
+      end_execution();
     }
     else {
       Serial.println("Connected to the Wi-Fi network.");
