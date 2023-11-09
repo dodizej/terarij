@@ -1,7 +1,10 @@
 #include "states/states.cpp"
 #include "http_server/wifi.cpp" 
 #include "http_server/server.cpp"
+#include "http_server/api.cpp"
 #include "components/components.cpp"
+#include "utils/utils.cpp"
+
 
 
 void setup() {

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "wifi.h"
-#include "../utils/utils.cpp"
+#include "../utils/utils.h"
 
 const unsigned int T_WiFi::timeout       = 10 * 1000;  // 10 sec
 const unsigned int T_WiFi::wait_interval = 500;        // 500 ms

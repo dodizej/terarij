@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "api.h"
-#include "../states/state.cpp"
+#include "../states/state.h"
 #include <ArduinoJson.h>
 
 
