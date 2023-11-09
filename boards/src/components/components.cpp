@@ -1,6 +1,6 @@
 #include "Arduino.h"
-#include "components/components.cpp"
-#include "../states/states.cpp"
+#include "components.h"
+#include "../states/states.h"
 #include <vector>
 
 T_Components& T_Components::get_instance() {

@@ -1,6 +1,7 @@
 #ifndef T_STATE
 #define T_STATE
 #include "Arduino.h"
+#pragma once
 
 // NOT USED
 
