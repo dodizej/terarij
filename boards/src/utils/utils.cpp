@@ -6,3 +6,7 @@ void end_execution() {  // todo - better implementation - low power mode?
     delay(100 * 1000);
   }
 }
+
+
+// TODO JSON functions
+
